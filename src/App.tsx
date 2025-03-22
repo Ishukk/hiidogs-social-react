@@ -1,23 +1,29 @@
-import Navbar from "./components/navbar/Navbar";
-import Sidebar from "./components/sidebar/Sidebar";
+import {BrowserRouter, Route, Routes } from "react-router-dom";
+import Dashboard from "./pages/Dashboard";
+import Post from "./pages/Post";
+import Friends from "./pages/Friends";
+import Message from "./pages/Message";
+import Notification from "./pages/Notification";
+import Settings from "./pages/Settings";
+import Error from "./pages/Error";
+
+
 function App() {
   return (
-    <div className="flex">
-      <div className="w-full h-screen">
-        <Navbar />
-        <div className="flex">
-          <div className="w-2/12 bg-blue-500">
-            <Sidebar />
-          </div>
-          <div className="w-10/12 bg-blue-400">
-            <div className=" w-1/1 items-center justify-center h-screen bg-gray-200">
-              <h1 className="text-4xl font-bold text-blue-600">
-                Hello, Tailwind with Vite!
-              </h1>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="post" element={<Post />} />
+          <Route path="message" element={<Message />} />
+          <Route path="/friends" element={<Friends />} />
+          <Route path="/notifications" element={<Notification />} />
+          <Route path="/settings" element={<Settings />} />
+          <Route path="/*" element={<Error />} />
+        </Routes>
+        </BrowserRouter>
+
     </div>
   );
 }
