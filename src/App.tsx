@@ -6,6 +6,8 @@ import Message from "./pages/Message";
 import Notification from "./pages/Notification";
 import Settings from "./pages/Settings";
 import Error from "./pages/Error";
+import Login_Page from "./components/login/Login _Page"
+import Register from "./components/login/Register";
 
 
 function App() {
@@ -21,6 +23,8 @@ function App() {
           <Route path="/notifications" element={<Notification />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="/*" element={<Error />} />
+          <Route path="login" element={<Login_Page/>} />
+          <Route path="/register" element={<Register/>}/>
         </Routes>
         </BrowserRouter>
 

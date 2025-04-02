@@ -1,9 +1,12 @@
-// import React from "react";
+
 import Navbar from "../components/navbar/Navbar";
 import Sidebar from "../components/sidebar/Sidebar";
 
+// import Login_Page from "../components/login/Login _Page";
+
 const Dashboard = () => {
   return (
+  
     <div className="flex">
       <div className="w-full h-screen">
         <Navbar />
@@ -16,6 +19,7 @@ const Dashboard = () => {
               <h1 className="text-4xl font-bold text-blue-600">
                 Hello, Tailwind with Vite!
                 dashboard
+                
               </h1>
             </div>
           </div>
