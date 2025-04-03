@@ -32,7 +32,7 @@ function Login_Page() {
 
     const data = JSON.parse(localStorage.getItems("login_crendentials") || "{}");
 
-    console.log(data.email, data.Password);}
+    console.log(data.email, data.password);}
 
     // alert("login successfully");
     // alert(data);
