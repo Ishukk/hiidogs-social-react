@@ -1,11 +1,11 @@
+import { BiSolidLogInCircle } from "react-icons/bi";
+import Login_Page from "../login/Login _Page";
+
 const Navbar = () => {
   return (
     <nav className="border-gray-200  bg-indigo-800 shadow-sm">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a
-          href="/"
-          className="flex items-center space-x-3 rtl:space-x-reverse"
-        >
+        <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
           <img
             src="https://flowbite.com/docs/images/logo.svg"
             className="h-8"
@@ -15,7 +15,7 @@ const Navbar = () => {
             HiiDogs
           </span>
         </a>
-        <div className="flex md:order-2">
+        <div className="flex justify-between md:order-2 w-2/6 ">
           <button
             type="button"
             data-collapse-toggle="navbar-search"
@@ -40,6 +40,7 @@ const Navbar = () => {
             </svg>
             <span className="sr-only">Search</span>
           </button>
+
           <div className="relative hidden md:block">
             <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
               <svg
@@ -90,6 +91,15 @@ const Navbar = () => {
               />
             </svg>
           </button>
+
+          <div>
+            <a href="/login">
+              <span className=" ont-extrabold border border-x-blue-50 rounded-lg hover: bg-white text-black  mx-2 px-3 h-9 flex justify-center items-center  ">
+                Login
+                <BiSolidLogInCircle className=" text-black size-7 mx-1" />
+              </span>
+            </a>
+          </div>
         </div>
         <div
           className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"

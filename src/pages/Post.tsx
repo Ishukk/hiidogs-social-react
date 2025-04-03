@@ -7,6 +7,7 @@ import { FiSend } from "react-icons/fi";
 import { FaHeart, FaRegComment } from "react-icons/fa";
 import { JSX } from "react/jsx-runtime";
 
+
 interface PostType {
   map(arg0: (post: any) => JSX.Element): import("react").ReactNode;
   id: number;
@@ -18,6 +19,28 @@ interface PostType {
 
 function Post() {
   const [posts, setPosts] = useState<PostType>([]);
+
+  const [islike, setIsLike] = useState<any>(false);
+  const [likeCount, setlikeCount] = useState<any>(0);
+  console.log("-----------------------islike1", islike);
+
+  function handleClick() {
+    console.log("--------------like fn calleddd--------------");
+    if (!islike) {
+      // setIsLike(true);
+      setlikeCount(likeCount + 1);
+    } else {
+      setIsLike(false);
+
+      if (likeCount == 0) {
+        setlikeCount(0);
+      } else {
+        setlikeCount(likeCount - 1);
+      }
+    }
+  }
+
+  console.log("-----------------------islike2", islike);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -34,7 +57,6 @@ function Post() {
     fetchData();
   }, []);
 
- 
   return (
     <div className="flex">
       <div className="w-full h-screen">
@@ -61,14 +83,22 @@ function Post() {
                         <div className="p-2">
                           <div className=" flex justify-between">
                             <div className="flex">
-                              <FaHeart className="w-6 h-6 text-current p-1" />
+                              <FaHeart
+                                className={
+                                  islike
+                                    ? "w-6 h-6 text-current p-1 text-red-700"
+                                    : "w-6 h-6 text-current p-1"
+                                }
+                                onClick={handleClick}
+                              />
                               <FaRegComment className="w-6 h-6 text-current p-1" />
                               <FiSend className="w-6 h-6 text-current p-1" />
                             </div>
                             <p className="text-sm">Views {post.views}</p>
                           </div>
                           <a href="#" className="text-xs">
-                            Likes {post.reactions.likes}
+                            Likes &nbsp;
+                            {likeCount}
                           </a>
                           <p className="text-sm">{post.title}</p>
                         </div>
@@ -82,6 +112,7 @@ function Post() {
         </div>
       </div>
     </div>
+    
   );
 }
 

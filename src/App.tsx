@@ -20,6 +20,8 @@ function App() {
           <Route path="/notifications" element={<Notification />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="/*" element={<Error />} />
+          <Route path="login" element={<Login_Page/>} />
+          <Route path="/register" element={<Register/>}/>
         </Routes>
       </BrowserRouter>
     </div>
