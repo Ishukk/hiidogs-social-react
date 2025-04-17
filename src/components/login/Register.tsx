@@ -1,19 +1,11 @@
 import { useState } from "react";
 
-// interface FormData {
-//   name: string;
-//   lastName: string;
-//   mobile: string;
-//   email: string;
-//   password: string;
-// }
-
 function Register() {
-  const [name, setName] = useState(" ");
-  const [last, setLast] = useState(" ");
-  const [mobile, setMobile] = useState(" ");
-  const [email, setEmail] = useState(" ");
-  const [password, setpassword] = useState(" ");
+  const [name, setName] = useState("");
+  const [last, setLast] = useState("");
+  const [mobile, setMobile] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setpassword] = useState("");
 
   function handleName(e: any) {
     setName(e.target.value);
@@ -32,6 +24,7 @@ function Register() {
   }
 
   function onSubmmit() {
+    alert("submit button is clicked");
     console.log("--------------login submit-----------");
     if (!name || !last || !mobile || !email || !password) {
       console.log("every section is mendetory ");
@@ -49,14 +42,15 @@ function Register() {
 
     try {
       //data save
-      localStorage.setItem("Local_creadetital", JSON.stringify(loginData));
+      localStorage.setItem("local_credential", JSON.stringify(loginData));
 
       // Retriver data
       const getData = JSON.parse(
-        localStorage.getItem("logic successfully") || "{}"
+        localStorage.getItem("local_credential") || "{}"
       );
       console.log("store data", getData);
-
+      
+      
       // alert("successfull\n"+ JSON.stringify(getData,null,2))
     } catch (error) {
       console.log("localStorage", error);
